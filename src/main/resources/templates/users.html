@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
+<html>
+<body>
+<div>
+  <table border="1" width="20%">
+    <thead>
+    <tr>
+      <th>Id</th>
+      <th>Name</th>
+      <th>Email</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="user : ${userList}"
+        th:style="'font-weight:bold;'">
+      <td th:text="${user.getId}"></td>
+      <td th:text="${user.getName}"> </td>
+      <td th:text="${user.getEmail}"></td>
+    </tr>
+    </tbody>
+  </table>
+  <br/>
+  Create user:
+  <form th:method="POST" th:action="@{/users}" th:object="${user}">
+    <label for="name">Enter name:</label>
+    <input type="text" th:field="*{name}" id="name"/>
+    <br/>
+    <label for="email">Enter email:</label>
+    <input type="text" th:field="*{email}" id="email"/>
+    <input type="submit" value="Create"/>
+  </form>
+  <br/>
+  Update user:
+  <form th:method="PATCH" th:action="@{/users}" th:object="${patchingUser}">
+  <label for="patchingId">Enter id:    </label>
+  <input type="text" th:field="*{id}" id="patchingId"/>
+    <br/>
+    <label for="patchingName">Enter name:</label>
+  <input type="text" th:field="*{name}" id="patchingName"/>
+    <br/>
+    <label for="patchingEmail">Enter email:</label>
+    <input type="text" th:field="*{email}" id="patchingEmail"/>
+    <input type="submit" value="Update user"/>
+  </form>
+  <br/>
+  Delete user by id:
+  <form th:method="DELETE" th:action="@{/users}" th:object="${deletingUser}">
+    <label for="id">Enter id:</label>
+    <input type="text" th:field="*{id}" id="id"/>
+    <input type="submit" value="Delete"/>
+  </form>
+</div>
+
+</body>
+</html>
