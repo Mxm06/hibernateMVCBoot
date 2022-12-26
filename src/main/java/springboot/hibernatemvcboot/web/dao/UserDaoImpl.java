@@ -12,7 +12,7 @@ public class UserDaoImpl implements UserDao{
     final private String FROM_USER = "From User";
     private EntityManager entityManager;
     // Я честно не знаю, почему не видит бин энтити менеджера, учитывая тот факт, что его создаёт автоматически, гугл ничего не ответил
-    // А программа работает нормально, просто suppress это подчёркивание или я дурак?
+    // А программа работает нормально, просто подавить это подчёркивание или я что-то не понимаю?
     @Autowired
     public UserDaoImpl(EntityManager entityManager) {
         this.entityManager = entityManager;
